@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEINT: layer-wise robustness and sensitivity in speech enhancement</title>
+
+    <!-- Absolute "/..." paths are correct here: Vite rewrites asset URLs inside
+         index.html at build time, prefixing whatever --base was passed. That is
+         why these work both at the site root (Cloud Run) and under the
+         /seint-show-web/ subpath (GitHub Pages). Only string literals inside
+         .tsx files need import.meta.env.BASE_URL (see App.tsx). -->
+    <link rel="icon" type="image/svg+xml" href="/seint-show-web/technion_logo.svg" />
+    <link rel="alternate icon" type="image/png" href="/seint-show-web/technion_logo.png" />
+    <link rel="apple-touch-icon" href="/seint-show-web/technion_logo.png" />
+    <meta name="theme-color" content="#0b3d5c" />
+
+    <meta
+      name="description"
+      content="Interactive companion to &quot;Probing Layer-Wise Robustness and Sensitivity of Speech Enhancement Models Under Noise and Reverberation&quot; (Amar, Ivry, Cohen). Add noise to a voice, move the SNR slider, and watch layer-wise CKA similarity to the clean reference. Robustness and sensitivity are sharply non-uniform across depth."
+    />
+    <meta name="author" content="Yair Amar, Amir Ivry, Israel Cohen, Technion" />
+    <link rel="canonical" href="https://yairamar.github.io/seint-show-web/" />
+    <meta name="citation_arxiv_id" content="2512.00482" />
+
+    <!-- Link previews. A URL shared into Slack, WhatsApp or X with no preview
+         card reads as untrustworthy, which matters more for a conference demo
+         than it does for an internal tool. og:image must be an absolute URL and
+         a raster format; several platforms will not render an SVG. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Technion, Andrew &amp; Erna Viterbi Faculty of Electrical &amp; Computer Engineering" />
+    <meta property="og:title" content="SEINT: layer-wise robustness and sensitivity in speech enhancement" />
+    <meta
+      property="og:description"
+      content="Add noise to a voice, move the SNR slider, and watch layer-wise CKA similarity to the clean reference. Companion demo to arXiv:2512.00482 (Amar, Ivry, Cohen, Technion)."
+    />
+    <meta property="og:url" content="https://yairamar.github.io/seint-show-web/" />
+    <meta property="og:image" content="https://yairamar.github.io/seint-show-web/technion_logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Technion logo" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SEINT: layer-wise robustness and sensitivity in speech enhancement" />
+    <meta
+      name="twitter:description"
+      content="Where are speech enhancement models most sensitive to degradation? Interactive companion to arXiv:2512.00482."
+    />
+    <meta name="twitter:image" content="https://yairamar.github.io/seint-show-web/technion_logo.png" />
+    <script type="module" crossorigin src="/seint-show-web/assets/index-CXgDR8tU.js"></script>
+    <link rel="stylesheet" crossorigin href="/seint-show-web/assets/index-VUW-TON0.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
