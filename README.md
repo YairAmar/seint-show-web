@@ -37,25 +37,32 @@ stays close to the clean reference while deeper layers pull away.
 ## What this repository contains
 
 Build output only. This is the compiled single-page app, served by GitHub Pages.
-It calls a separate API for inference. The application source, the backend and
-the research code are not part of this repository.
+It needs no server. The application source, the backend and the research code
+are not part of this repository.
 
-It is produced from the project's `frontend/` directory with:
+`static-api/` holds the backend's responses for the six curated voices and the
+five shipped noises, at every SNR from -10 to 30 dB, for all three models. The
+page reads those files instead of calling an API. It is produced from the
+project's `backend/` and `frontend/` directories with:
 
 ```
-VITE_API_BASE=<api-origin>/api npx vite build --base=/seint-show-web/ --sourcemap false
+cd backend
+python scripts/export_static_api.py ../frontend/public/static-api
+cd ../frontend
+VITE_STATIC_API=true npx vite build --base=/seint-show-web/ --sourcemap false
 ```
 
 ## Notes
 
-- The heavy computation is designed to run on the presenter's own machine. When
-  no local compute is reachable, the hosted API returns representative values
-  shaped like the paper's layer profiles. That is enough to show the effect, but
-  it is not measured output for your specific clip.
-- Microphone capture is optional. Recorded clips are held only for your own
-  session, are not stored on the server, and are not visible to anyone else.
-- The hosted API is a free-tier deployment with a scheduled shutdown. If the page
-  loads but reports the backend as unreachable, that is the reason.
+- Most CKA values are representative values shaped like the paper's layer
+  profiles, from the backend's mock mode, the same mode the earlier hosted API
+  ran. That is enough to show the effect, but it is not measured output for
+  your clip.
+- The enhanced audio comes from an oracle filter that uses the clean reference,
+  so it can sound better than a real model would.
+- Recording your own voice or noise needs the backend and is not available here.
+- When a compute backend runs on your own machine at `http://127.0.0.1:8000/api`,
+  the page still uses it for the noise sweeps.
 
 ## License
 
